@@ -1,8 +1,14 @@
 <h1>Recipe Box</h1>
-<h2>Authenticated? {{ request.user.is_authenticated }}</h2>
+<h2>User: {{ request.user }}</h2>
+<div>
+  <a href="/login/">login</a>
+  <a href="/logout/">logout</a>
+</div>
+<br />
 <a href="/addrecipe/">New Recipe</a>
 <br />
 <a href="/addauthor/">New Author</a>
+<h2>Recipes</h2>
 <ul>
   {% for recipe in recipes %}
     <li>
