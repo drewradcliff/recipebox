@@ -19,3 +19,8 @@ class Recipe(models.Model):
     description = models.TextField()
     time_required = models.CharField(max_length=20)
     instructions = models.TextField()
+
+
+class Favorites(models.Model):
+    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
