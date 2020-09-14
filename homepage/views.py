@@ -48,11 +48,9 @@ def author(request, author_id):
 
 
 def author_favorite(request, author_id):
-    author = Author.objects.get(id=author)
+    author = Author.objects.get(id=author_id)
     favorite = Favorites.objects.filter(author=author)
-    return render(request, "favorites.html", {"favorite": favorite, "author": author.name})
-
-
+    return render(request, "favorites.html", {"favorites": favorite, "author": author.name})
 
 
 @login_required
