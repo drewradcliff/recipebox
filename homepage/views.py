@@ -80,7 +80,6 @@ def add_author(request):
 def add_recipe(request):
     if request.method == "POST":
         form = AddRecipeForm(request.POST)
-        # form.save()
         if form.is_valid():
             data = form.cleaned_data
             new_article = Recipe.objects.create(
