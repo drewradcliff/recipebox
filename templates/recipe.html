@@ -4,13 +4,22 @@
   {% else %}
     <h1>{{ recipe.title }}</h1>
     <h4>
-      Author: 
+      Author:
       <a href="/author/{{ recipe.author.id }}">{{ recipe.author.name }}</a>
     </h4>
     <h4>Description</h4>
     <p>{{ recipe.description }}</p>
     <h4>Time Required: {{ recipe.time_required }}</h4>
     <h4>Instructions</h4>
-    <p>{{ recipe.instructions }}
+    <p>{{ recipe.instructions }}</p>
+    {% if request.user == recipe.author.user or request.user.is_staff %}
+    <a href="/recipe/{{ recipe.id }}/edit/"><button>Edit</button></a>
+    <br />
+{% endif %}
+{% if request.user.is_authenticated %}
+    <a href="/recipe/{{ recipe.id }}/favorites/"><button>Favorite</button>
+{% endif %}
+<br />
+    <a href="/"><button>Home</button></a>
   {% endif %}
 </div>

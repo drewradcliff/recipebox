@@ -1,0 +1,12 @@
+<h1>{{ author }}'s Favorites</h1>
+{% if favorites %}
+<ul>
+  {% for favorite in favorites %}
+  <li>
+    <a href="/recipe/{{ favorite.recipe.id }}/">{{ favorite.recipe.title }}</a>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<h3>No favorites yet</h3>
+{% endif %}
